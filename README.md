@@ -1,10 +1,10 @@
 # LiveEarth!
 
 ## Introduction
-- 实时动态更新地球壁纸！
+- Windows下实时动态更新地球壁纸！
 - 地球照片抓自日本[himawari-8](http://himawari8.nict.go.jp/)气象卫星官网
-- 默认每一小时抓取一次
-- 不到50行的python代码
+- ~~默认每小时抓取一次~~（改为5分钟获取一次最新的图片，网站图片是10分钟更新一次）
+- ~~不到50行的python代码~~ (不包括import)
 - 感谢 [bitdust](https://github.com/bitdust) 提供的idea
 
 ## 2018/6/15更新
