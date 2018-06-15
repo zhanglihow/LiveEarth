@@ -32,15 +32,15 @@ def getPic_url():
     date = res_json["date"]
     hour_url = time.strftime("%Y/%m/%d/%H%M%S", time.strptime(date, "%Y-%m-%d %H:%M:%S"))
     pic_url = base_url + hour_url + "_0_0.png"
-    print(pic_url)
+    print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
     return pic_url
 
 
 # 下载图片
 def down_pic(pic_url):
-    date = time.strftime('%Y-%m-%d', time.localtime(time.time()))
-    hour = str(int(time.strftime('%H', time.localtime(time.time()))) - 1)
-    pic_name = cwd + "\\downloads\\" + date + "-" + hour + ".png"
+    date = time.strftime('%Y_%m_%d', time.localtime(time.time()))
+    hour = str(time.strftime('%H_%M', time.localtime(time.time())))
+    pic_name = cwd + "\\earth_down\\" + date + "-" + hour + ".png"
     conn = urllib.request.urlopen(pic_url)
     f = open(pic_name, 'wb')
     f.write(conn.read())
@@ -50,8 +50,8 @@ def down_pic(pic_url):
 
 
 def main():
-    if not os.path.exists(cwd + "/downloads"):
-        os.mkdir(cwd + "/downloads")
+    if not os.path.exists(cwd + "/earth_down"):
+       os.mkdir(cwd + "/earth_down")
     while True:
         pic_url = getPic_url()
         pic_name = down_pic(pic_url)
